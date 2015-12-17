@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AACBCF4E1C223ADD0013B46A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */; };
+		AACBCF541C223F570013B46A /* RLRGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */; };
+		AACBCF571C223F6D0013B46A /* RLRHotkeysTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF561C223F6D0013B46A /* RLRHotkeysTableViewController.m */; };
+		AACBCF5D1C2268780013B46A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF5B1C2268780013B46A /* Model.xcdatamodeld */; };
+		AACBCF611C226B500013B46A /* RLRWelcomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF5F1C226B500013B46A /* RLRWelcomeTableViewController.m */; };
+		AACBCF641C226D670013B46A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AACBCF631C226D670013B46A /* Storyboard.storyboard */; };
 		AAEFE8171C2231200001076A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEFE8161C2231200001076A /* main.m */; };
 		AAEFE81A1C2231200001076A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEFE8191C2231200001076A /* AppDelegate.m */; };
-		AAEFE81D1C2231200001076A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAEFE81B1C2231200001076A /* Main.storyboard */; };
 		AAEFE81F1C2231200001076A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAEFE81E1C2231200001076A /* Assets.xcassets */; };
-		AAEFE8221C2231200001076A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAEFE8201C2231200001076A /* LaunchScreen.storyboard */; };
 		AAEFE82D1C2231200001076A /* VideoGameHotkeysTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEFE82C1C2231200001076A /* VideoGameHotkeysTests.m */; };
 		AAEFE8381C2231210001076A /* VideoGameHotkeysUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEFE8371C2231210001076A /* VideoGameHotkeysUITests.m */; };
 /* End PBXBuildFile section */
@@ -34,13 +38,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AACBCF521C223F570013B46A /* RLRGamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRGamesTableViewController.h; sourceTree = "<group>"; };
+		AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRGamesTableViewController.m; sourceTree = "<group>"; };
+		AACBCF551C223F6D0013B46A /* RLRHotkeysTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRHotkeysTableViewController.h; sourceTree = "<group>"; };
+		AACBCF561C223F6D0013B46A /* RLRHotkeysTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRHotkeysTableViewController.m; sourceTree = "<group>"; };
+		AACBCF5C1C2268780013B46A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		AACBCF5E1C226B500013B46A /* RLRWelcomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRWelcomeTableViewController.h; sourceTree = "<group>"; };
+		AACBCF5F1C226B500013B46A /* RLRWelcomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRWelcomeTableViewController.m; sourceTree = "<group>"; };
+		AACBCF631C226D670013B46A /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		AAEFE8121C2231200001076A /* VideoGameHotkeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoGameHotkeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAEFE8161C2231200001076A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AAEFE8181C2231200001076A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AAEFE8191C2231200001076A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AAEFE81C1C2231200001076A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAEFE81E1C2231200001076A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AAEFE8211C2231200001076A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAEFE8231C2231200001076A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAEFE8281C2231200001076A /* VideoGameHotkeysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoGameHotkeysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAEFE82C1C2231200001076A /* VideoGameHotkeysTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoGameHotkeysTests.m; sourceTree = "<group>"; };
@@ -78,6 +89,8 @@
 		AAEFE8091C2231200001076A = {
 			isa = PBXGroup;
 			children = (
+				AACBCF5B1C2268780013B46A /* Model.xcdatamodeld */,
+				AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */,
 				AAEFE8141C2231200001076A /* VideoGameHotkeys */,
 				AAEFE82B1C2231200001076A /* VideoGameHotkeysTests */,
 				AAEFE8361C2231210001076A /* VideoGameHotkeysUITests */,
@@ -100,9 +113,14 @@
 			children = (
 				AAEFE8181C2231200001076A /* AppDelegate.h */,
 				AAEFE8191C2231200001076A /* AppDelegate.m */,
-				AAEFE81B1C2231200001076A /* Main.storyboard */,
+				AACBCF5E1C226B500013B46A /* RLRWelcomeTableViewController.h */,
+				AACBCF5F1C226B500013B46A /* RLRWelcomeTableViewController.m */,
+				AACBCF631C226D670013B46A /* Storyboard.storyboard */,
+				AACBCF521C223F570013B46A /* RLRGamesTableViewController.h */,
+				AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */,
+				AACBCF551C223F6D0013B46A /* RLRHotkeysTableViewController.h */,
+				AACBCF561C223F6D0013B46A /* RLRHotkeysTableViewController.m */,
 				AAEFE81E1C2231200001076A /* Assets.xcassets */,
-				AAEFE8201C2231200001076A /* LaunchScreen.storyboard */,
 				AAEFE8231C2231200001076A /* Info.plist */,
 				AAEFE8151C2231200001076A /* Supporting Files */,
 			);
@@ -238,9 +256,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAEFE8221C2231200001076A /* LaunchScreen.storyboard in Resources */,
 				AAEFE81F1C2231200001076A /* Assets.xcassets in Resources */,
-				AAEFE81D1C2231200001076A /* Main.storyboard in Resources */,
+				AACBCF641C226D670013B46A /* Storyboard.storyboard in Resources */,
+				AACBCF4E1C223ADD0013B46A /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +283,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACBCF541C223F570013B46A /* RLRGamesTableViewController.m in Sources */,
+				AACBCF5D1C2268780013B46A /* Model.xcdatamodeld in Sources */,
+				AACBCF571C223F6D0013B46A /* RLRHotkeysTableViewController.m in Sources */,
+				AACBCF611C226B500013B46A /* RLRWelcomeTableViewController.m in Sources */,
 				AAEFE81A1C2231200001076A /* AppDelegate.m in Sources */,
 				AAEFE8171C2231200001076A /* main.m in Sources */,
 			);
@@ -300,25 +322,6 @@
 			targetProxy = AAEFE8341C2231200001076A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		AAEFE81B1C2231200001076A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AAEFE81C1C2231200001076A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AAEFE8201C2231200001076A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AAEFE8211C2231200001076A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AAEFE83A1C2231210001076A /* Debug */ = {
@@ -490,6 +493,7 @@
 				AAEFE83E1C2231210001076A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAEFE83F1C2231210001076A /* Build configuration list for PBXNativeTarget "VideoGameHotkeysTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +502,7 @@
 				AAEFE8411C2231210001076A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAEFE8421C2231210001076A /* Build configuration list for PBXNativeTarget "VideoGameHotkeysUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,8 +511,22 @@
 				AAEFE8441C2231210001076A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AACBCF5B1C2268780013B46A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AACBCF5C1C2268780013B46A /* Model.xcdatamodel */,
+			);
+			currentVersion = AACBCF5C1C2268780013B46A /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AAEFE80A1C2231200001076A /* Project object */;
 }
