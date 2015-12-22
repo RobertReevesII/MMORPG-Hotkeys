@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAC8404C1C28831D0014DD39 /* RLRDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC8404B1C28831D0014DD39 /* RLRDataController.m */; };
 		AACBCF4E1C223ADD0013B46A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */; };
 		AACBCF541C223F570013B46A /* RLRGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */; };
 		AACBCF571C223F6D0013B46A /* RLRHotkeysTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF561C223F6D0013B46A /* RLRHotkeysTableViewController.m */; };
 		AACBCF5D1C2268780013B46A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF5B1C2268780013B46A /* Model.xcdatamodeld */; };
 		AACBCF611C226B500013B46A /* RLRWelcomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF5F1C226B500013B46A /* RLRWelcomeTableViewController.m */; };
 		AACBCF641C226D670013B46A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AACBCF631C226D670013B46A /* Storyboard.storyboard */; };
+		AACBCF6B1C2294780013B46A /* RLRGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF6A1C2294780013B46A /* RLRGame.m */; };
+		AACBCF6E1C2295560013B46A /* RLRHotkey.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF6D1C2295560013B46A /* RLRHotkey.m */; };
 		AAEFE8171C2231200001076A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEFE8161C2231200001076A /* main.m */; };
 		AAEFE81A1C2231200001076A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEFE8191C2231200001076A /* AppDelegate.m */; };
 		AAEFE81F1C2231200001076A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAEFE81E1C2231200001076A /* Assets.xcassets */; };
@@ -38,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AAC8404A1C28831C0014DD39 /* RLRDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRDataController.h; sourceTree = "<group>"; };
+		AAC8404B1C28831D0014DD39 /* RLRDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRDataController.m; sourceTree = "<group>"; };
 		AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AACBCF521C223F570013B46A /* RLRGamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRGamesTableViewController.h; sourceTree = "<group>"; };
 		AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRGamesTableViewController.m; sourceTree = "<group>"; };
@@ -47,6 +52,10 @@
 		AACBCF5E1C226B500013B46A /* RLRWelcomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRWelcomeTableViewController.h; sourceTree = "<group>"; };
 		AACBCF5F1C226B500013B46A /* RLRWelcomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRWelcomeTableViewController.m; sourceTree = "<group>"; };
 		AACBCF631C226D670013B46A /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		AACBCF691C2294780013B46A /* RLRGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRGame.h; sourceTree = "<group>"; };
+		AACBCF6A1C2294780013B46A /* RLRGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRGame.m; sourceTree = "<group>"; };
+		AACBCF6C1C2295560013B46A /* RLRHotkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRHotkey.h; sourceTree = "<group>"; };
+		AACBCF6D1C2295560013B46A /* RLRHotkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRHotkey.m; sourceTree = "<group>"; };
 		AAEFE8121C2231200001076A /* VideoGameHotkeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoGameHotkeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAEFE8161C2231200001076A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AAEFE8181C2231200001076A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +95,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AACBCF681C22943B0013B46A /* TableViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AACBCF5E1C226B500013B46A /* RLRWelcomeTableViewController.h */,
+				AACBCF5F1C226B500013B46A /* RLRWelcomeTableViewController.m */,
+				AACBCF521C223F570013B46A /* RLRGamesTableViewController.h */,
+				AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */,
+				AACBCF551C223F6D0013B46A /* RLRHotkeysTableViewController.h */,
+				AACBCF561C223F6D0013B46A /* RLRHotkeysTableViewController.m */,
+			);
+			name = TableViewControllers;
+			sourceTree = "<group>";
+		};
+		AACBCF6F1C22958F0013B46A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AAC8404A1C28831C0014DD39 /* RLRDataController.h */,
+				AAC8404B1C28831D0014DD39 /* RLRDataController.m */,
+				AACBCF691C2294780013B46A /* RLRGame.h */,
+				AACBCF6A1C2294780013B46A /* RLRGame.m */,
+				AACBCF6C1C2295560013B46A /* RLRHotkey.h */,
+				AACBCF6D1C2295560013B46A /* RLRHotkey.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		AAEFE8091C2231200001076A = {
 			isa = PBXGroup;
 			children = (
@@ -113,13 +148,9 @@
 			children = (
 				AAEFE8181C2231200001076A /* AppDelegate.h */,
 				AAEFE8191C2231200001076A /* AppDelegate.m */,
-				AACBCF5E1C226B500013B46A /* RLRWelcomeTableViewController.h */,
-				AACBCF5F1C226B500013B46A /* RLRWelcomeTableViewController.m */,
+				AACBCF6F1C22958F0013B46A /* Data */,
+				AACBCF681C22943B0013B46A /* TableViewControllers */,
 				AACBCF631C226D670013B46A /* Storyboard.storyboard */,
-				AACBCF521C223F570013B46A /* RLRGamesTableViewController.h */,
-				AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */,
-				AACBCF551C223F6D0013B46A /* RLRHotkeysTableViewController.h */,
-				AACBCF561C223F6D0013B46A /* RLRHotkeysTableViewController.m */,
 				AAEFE81E1C2231200001076A /* Assets.xcassets */,
 				AAEFE8231C2231200001076A /* Info.plist */,
 				AAEFE8151C2231200001076A /* Supporting Files */,
@@ -283,10 +314,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACBCF6E1C2295560013B46A /* RLRHotkey.m in Sources */,
 				AACBCF541C223F570013B46A /* RLRGamesTableViewController.m in Sources */,
 				AACBCF5D1C2268780013B46A /* Model.xcdatamodeld in Sources */,
 				AACBCF571C223F6D0013B46A /* RLRHotkeysTableViewController.m in Sources */,
+				AACBCF6B1C2294780013B46A /* RLRGame.m in Sources */,
 				AACBCF611C226B500013B46A /* RLRWelcomeTableViewController.m in Sources */,
+				AAC8404C1C28831D0014DD39 /* RLRDataController.m in Sources */,
 				AAEFE81A1C2231200001076A /* AppDelegate.m in Sources */,
 				AAEFE8171C2231200001076A /* main.m in Sources */,
 			);
