@@ -22,7 +22,7 @@
 
 - (void)initializeCoreData {
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Model"
-                                              withExtension:@"xcdatamodeld"];
+                                              withExtension:@"momd"];
     NSLog(@"%@", modelURL);
     
     NSManagedObjectModel *mom = [[NSManagedObjectModel alloc]
@@ -38,7 +38,7 @@
     [self setManagedObjectContext:moc];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *documentsURL = [[fileManager URLsForDirectory:NSDocumentationDirectory
+    NSURL *documentsURL = [[fileManager URLsForDirectory:NSDocumentDirectory
                                                inDomains:NSUserDomainMask] lastObject];
     
     NSURL *storeURL = [documentsURL URLByAppendingPathComponent:@"DataModel.sqlite"];

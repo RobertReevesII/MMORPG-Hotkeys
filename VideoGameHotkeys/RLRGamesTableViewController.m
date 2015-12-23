@@ -6,10 +6,13 @@
 //  Copyright © 2015 Robert Reeves II. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "RLRGamesTableViewController.h"
 #import "RLRHotkeysTableViewController.h"
 
-@interface RLRGamesTableViewController ()
+@interface RLRGamesTableViewController () <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -18,11 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self initializeFetchedResultsController];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +37,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
+}
+
+#pragma mark - NSFetchedResultsController
+
+- (void)initializeFetchedResultsController {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Game"];
+    NSSortDescriptor *hotkeySort = [NSSortDescriptor sortDescriptorWithKey:@"hotkey"
+                                                                 ascending:YES];
+    [request setSortDescriptors:@[hotkeySort]];
+    
+    NSManagedObjectContext *moc = [[NSManagedObjectContext alloc]
+                                   initWithConcurrencyType:NSMainQueueConcurrencyType];
+    
+    [self setFetchedResultsController:[[NSFetchedResultsController alloc]
+                                       initWithFetchRequest:request
+                                       managedObjectContext:moc
+                                       sectionNameKeyPath:nil
+                                       cacheName:nil]];
+    [[self fetchedResultsController] setDelegate:self];
+    
+    NSError *error = nil;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        NSLog(@"Failed to initialize FetchedResultsController %@\n%@", [error localizedDescription], [error
+                                                                                                      userInfo]);
+        abort();
+    }
 }
 
 /*

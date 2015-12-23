@@ -124,7 +124,6 @@
 		AAEFE8091C2231200001076A = {
 			isa = PBXGroup;
 			children = (
-				AACBCF5B1C2268780013B46A /* Model.xcdatamodeld */,
 				AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */,
 				AAEFE8141C2231200001076A /* VideoGameHotkeys */,
 				AAEFE82B1C2231200001076A /* VideoGameHotkeysTests */,
@@ -161,6 +160,7 @@
 		AAEFE8151C2231200001076A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AACBCF5B1C2268780013B46A /* Model.xcdatamodeld */,
 				AAEFE8161C2231200001076A /* main.m */,
 			);
 			name = "Supporting Files";
@@ -556,7 +556,8 @@
 				AACBCF5C1C2268780013B46A /* Model.xcdatamodel */,
 			);
 			currentVersion = AACBCF5C1C2268780013B46A /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			name = Model.xcdatamodeld;
+			path = ../Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
