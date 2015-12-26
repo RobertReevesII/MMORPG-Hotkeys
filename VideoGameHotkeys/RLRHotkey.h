@@ -6,7 +6,7 @@
 //  Copyright © 2015 Robert Reeves II. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface RLRHotkey : NSObject
 

@@ -6,20 +6,26 @@
 //  Copyright © 2015 Robert Reeves II. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
+@import CoreData;
 #import "RLRGamesTableViewController.h"
 #import "RLRHotkeysTableViewController.h"
+#import "RLRDataController.h"
+
 
 @interface RLRGamesTableViewController () <NSFetchedResultsControllerDelegate>
-
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-
 @end
+
 
 @implementation RLRGamesTableViewController
 
+#pragma mark - Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:@"UITableViewCell"];
     
     [self initializeFetchedResultsController];
 }
@@ -27,16 +33,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
 }
 
 #pragma mark - NSFetchedResultsController
@@ -47,8 +43,12 @@
                                                                  ascending:YES];
     [request setSortDescriptors:@[hotkeySort]];
     
-    NSManagedObjectContext *moc = [[NSManagedObjectContext alloc]
-                                   initWithConcurrencyType:NSMainQueueConcurrencyType];
+    RLRDataController *dataController = [[RLRDataController alloc]
+                                         init];
+    
+    NSManagedObjectContext *moc = dataController.managedObjectContext;
+    
+    NSLog(@"%@", moc.persistentStoreCoordinator);
     
     [self setFetchedResultsController:[[NSFetchedResultsController alloc]
                                        initWithFetchRequest:request
@@ -56,6 +56,8 @@
                                        sectionNameKeyPath:nil
                                        cacheName:nil]];
     [[self fetchedResultsController] setDelegate:self];
+    
+
     
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
@@ -65,15 +67,39 @@
     }
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+#pragma mark - Table view data source
+
+- (void)configureCell:(id)cell atIndexPath:(NSIndexPath*)indexPath {
     
-    // Configure the cell...
+    id object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     
-    return cell;
+    // Populate cell from the NSManagedObject instance
+    
 }
-*/
+
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+      
+     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+     NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
+     
+     
+ 
+ // Configure the cell...
+     
+     cell.textLabel.text = @"ddd";
+     
+     return cell;
+ }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[[self fetchedResultsController] sections] count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    id< NSFetchedResultsSectionInfo> sectionInfo = [[self fetchedResultsController] sections][section];
+    return [sectionInfo numberOfObjects];
+}
+
 
 /*
 // Override to support conditional editing of the table view.

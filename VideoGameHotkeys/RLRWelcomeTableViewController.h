@@ -6,7 +6,7 @@
 //  Copyright © 2015 Robert Reeves II. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface RLRWelcomeTableViewController : UITableViewController
 

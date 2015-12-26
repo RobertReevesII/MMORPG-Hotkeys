@@ -6,8 +6,8 @@
 //  Copyright © 2015 Robert Reeves II. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+@import Foundation;
+@import UIKit;
 
 @interface RLRGame : NSObject
 

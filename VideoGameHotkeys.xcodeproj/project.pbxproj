@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA335AEA1C2EFD38008BD791 /* File in Resources */ = {isa = PBXBuildFile; fileRef = AA335AE91C2EFD38008BD791 /* File */; };
 		AAC8404C1C28831D0014DD39 /* RLRDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC8404B1C28831D0014DD39 /* RLRDataController.m */; };
 		AACBCF4E1C223ADD0013B46A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */; };
 		AACBCF541C223F570013B46A /* RLRGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA335AE91C2EFD38008BD791 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = File; path = VideoGameHotkeys/File; sourceTree = "<group>"; };
 		AAC8404A1C28831C0014DD39 /* RLRDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRDataController.h; sourceTree = "<group>"; };
 		AAC8404B1C28831D0014DD39 /* RLRDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRDataController.m; sourceTree = "<group>"; };
 		AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		AAEFE8091C2231200001076A = {
 			isa = PBXGroup;
 			children = (
+				AA335AE91C2EFD38008BD791 /* File */,
 				AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */,
 				AAEFE8141C2231200001076A /* VideoGameHotkeys */,
 				AAEFE82B1C2231200001076A /* VideoGameHotkeysTests */,
@@ -287,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA335AEA1C2EFD38008BD791 /* File in Resources */,
 				AAEFE81F1C2231200001076A /* Assets.xcassets in Resources */,
 				AACBCF641C226D670013B46A /* Storyboard.storyboard in Resources */,
 				AACBCF4E1C223ADD0013B46A /* Default-568h@2x.png in Resources */,

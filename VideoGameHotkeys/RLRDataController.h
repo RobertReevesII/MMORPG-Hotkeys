@@ -6,8 +6,8 @@
 //  Copyright © 2015 Robert Reeves II. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+@import CoreData;
+@import Foundation;
 
 @interface RLRDataController : NSObject
 

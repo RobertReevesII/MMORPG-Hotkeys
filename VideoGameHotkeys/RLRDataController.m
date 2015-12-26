@@ -57,4 +57,9 @@
                                   [error userInfo]);
                      });
 }
+
+// Create @property NSArrays for each TableView to hold data fetched from Core Data
+// Create method for each TableVew that populates @property NSArrays by fetching data from Core Data (might be better to move from DataController to respective UITableViewControllers)
+// ie. -(NSArray)GamesTableView, -(NSArray)HotkeysTableView
+
 @end
