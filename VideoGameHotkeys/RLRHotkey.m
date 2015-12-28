@@ -10,4 +10,7 @@
 
 @implementation RLRHotkey
 
+@dynamic function;
+@dynamic keys;
+
 @end

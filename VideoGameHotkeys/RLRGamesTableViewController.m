@@ -10,6 +10,7 @@
 #import "RLRGamesTableViewController.h"
 #import "RLRHotkeysTableViewController.h"
 #import "RLRDataController.h"
+#import "RLRGame.h"
 
 
 @interface RLRGamesTableViewController () <NSFetchedResultsControllerDelegate>
@@ -39,16 +40,14 @@
 
 - (void)initializeFetchedResultsController {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Game"];
-    NSSortDescriptor *hotkeySort = [NSSortDescriptor sortDescriptorWithKey:@"hotkey"
+    NSSortDescriptor *nameSort = [NSSortDescriptor sortDescriptorWithKey:@"name"
                                                                  ascending:YES];
-    [request setSortDescriptors:@[hotkeySort]];
+    [request setSortDescriptors:@[nameSort]];
     
     RLRDataController *dataController = [[RLRDataController alloc]
                                          init];
     
     NSManagedObjectContext *moc = dataController.managedObjectContext;
-    
-    NSLog(@"%@", moc.persistentStoreCoordinator);
     
     [self setFetchedResultsController:[[NSFetchedResultsController alloc]
                                        initWithFetchRequest:request
@@ -57,47 +56,41 @@
                                        cacheName:nil]];
     [[self fetchedResultsController] setDelegate:self];
     
-
     
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
-        NSLog(@"Failed to initialize FetchedResultsController %@\n%@", [error localizedDescription], [error
-                                                                                                      userInfo]);
+        NSLog(@"Failed to initialize FetchedResultsController %@\n%@", [error localizedDescription],
+              [error userInfo]);
         abort();
     }
 }
 
 #pragma mark - Table view data source
 
-- (void)configureCell:(id)cell atIndexPath:(NSIndexPath*)indexPath {
-    
-    id object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    
-    // Populate cell from the NSManagedObject instance
-    
-}
-
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
       
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-     NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
      
      
- 
+     RLRGame *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
+     
+     NSLog(@"%@", game.name);
+     
  // Configure the cell...
      
-     cell.textLabel.text = @"ddd";
+     cell.textLabel.text = game.name;
      
      return cell;
  }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[[self fetchedResultsController] sections] count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    id< NSFetchedResultsSectionInfo> sectionInfo = [[self fetchedResultsController] sections][section];
-    return [sectionInfo numberOfObjects];
+   // id< NSFetchedResultsSectionInfo> sectionInfo = [[self fetchedResultsController] sections][section];
+   // return [sectionInfo numberOfObjects];
+    return 1;
 }
 
 

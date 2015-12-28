@@ -7,10 +7,12 @@
 //
 
 @import Foundation;
+@import UIKit;
+@import CoreData;
 
-@interface RLRHotkey : NSObject
+@interface RLRHotkey : NSManagedObject
 
 @property (nonatomic) NSString *function;
-@property (nonatomic) NSString *command;
+@property (nonatomic) NSString *keys;
 
 @end

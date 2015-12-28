@@ -7,6 +7,7 @@
 //
 
 #import "RLRDataController.h"
+#import "RLRGame.h"
 
 @implementation RLRDataController
 
@@ -16,6 +17,7 @@
         return nil;
     }
     [self initializeCoreData];
+    [self initialCoreDataPopulation];
     
     return self;
 }
@@ -58,8 +60,24 @@
                      });
 }
 
-// Create @property NSArrays for each TableView to hold data fetched from Core Data
-// Create method for each TableVew that populates @property NSArrays by fetching data from Core Data (might be better to move from DataController to respective UITableViewControllers)
-// ie. -(NSArray)GamesTableView, -(NSArray)HotkeysTableView
+- (void)initialCoreDataPopulation {
+    // Create initial RLRGame
+    RLRGame *game1 = [NSEntityDescription insertNewObjectForEntityForName:@"Game"
+                                                   inManagedObjectContext:self.managedObjectContext];
+    
+    game1.name = @"League of Legends";
+    
+    // Insert intial RLRGame into Managed Object Contezt
+    
+    
+    // Save objects into store
+    NSError *error = nil;
+    if ([[self managedObjectContext] save:&error] == NO) {
+        NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription],
+                 [error userInfo]);
+    }
+}
+
+
 
 @end

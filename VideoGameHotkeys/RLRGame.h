@@ -8,9 +8,10 @@
 
 @import Foundation;
 @import UIKit;
+@import CoreData;
 
-@interface RLRGame : NSObject
+@interface RLRGame : NSManagedObject
 
-@property (nonatomic) NSArray *hotkeys;
+@property (nonatomic) NSString *name;
 
 @end

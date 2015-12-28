@@ -10,4 +10,6 @@
 
 @implementation RLRGame
 
+@dynamic name;
+
 @end
