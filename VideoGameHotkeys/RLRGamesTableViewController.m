@@ -15,6 +15,7 @@
 
 @interface RLRGamesTableViewController () <NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSArray *gamesArray;
 @end
 
 
@@ -27,8 +28,9 @@
     
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
-    
+    NSLog(@"1");
     [self initializeFetchedResultsController];
+    NSLog(@"2");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,41 +58,39 @@
                                        cacheName:nil]];
     [[self fetchedResultsController] setDelegate:self];
     
-    
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
         NSLog(@"Failed to initialize FetchedResultsController %@\n%@", [error localizedDescription],
               [error userInfo]);
         abort();
     }
+    NSLog(@"%@", self.fetchedResultsController.fetchedObjects);
 }
 
 #pragma mark - Table view data source
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-      
+     NSLog(@"cellforrowcalled");
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-     
-     
      RLRGame *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
      
      NSLog(@"%@", game.name);
      
- // Configure the cell...
+     // Configure the cell...
      
+     
+     // Should I do this in a custom UITableViewCell?
      cell.textLabel.text = game.name;
      
      return cell;
  }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [[_fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-   // id< NSFetchedResultsSectionInfo> sectionInfo = [[self fetchedResultsController] sections][section];
-   // return [sectionInfo numberOfObjects];
-    return 1;
+    return [_fetchedResultsController.fetchedObjects count];
 }
 
 

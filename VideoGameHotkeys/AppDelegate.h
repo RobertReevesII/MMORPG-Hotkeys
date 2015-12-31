@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "RLRDataController.h"
 
+extern BOOL * const dataIsPreloaded;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

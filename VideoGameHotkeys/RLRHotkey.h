@@ -12,7 +12,7 @@
 
 @interface RLRHotkey : NSManagedObject
 
-@property (nonatomic) NSString *function;
 @property (nonatomic) NSString *keys;
+@property (nonatomic) NSString *function;
 
 @end

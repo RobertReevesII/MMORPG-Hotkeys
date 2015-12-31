@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AA335AEA1C2EFD38008BD791 /* Todo in Resources */ = {isa = PBXBuildFile; fileRef = AA335AE91C2EFD38008BD791 /* Todo */; };
+		AA81B5FC1C339C7300F53E90 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA81B5FB1C339C7300F53E90 /* CHCSVParser.m */; };
+		AAA108501C33704700201B8D /* games.csv in Resources */ = {isa = PBXBuildFile; fileRef = AAA1084F1C33704700201B8D /* games.csv */; };
 		AAC8404C1C28831D0014DD39 /* RLRDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC8404B1C28831D0014DD39 /* RLRDataController.m */; };
 		AACBCF4E1C223ADD0013B46A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */; };
 		AACBCF541C223F570013B46A /* RLRGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */; };
@@ -43,9 +45,12 @@
 
 /* Begin PBXFileReference section */
 		AA335AE91C2EFD38008BD791 /* Todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Todo; path = VideoGameHotkeys/Todo; sourceTree = "<group>"; };
+		AA81B5FA1C339C7300F53E90 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHCSVParser.h; path = "../CHCSVParser-master-2/CHCSVParser/CHCSVParser/CHCSVParser.h"; sourceTree = "<group>"; };
+		AA81B5FB1C339C7300F53E90 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHCSVParser.m; path = "../CHCSVParser-master-2/CHCSVParser/CHCSVParser/CHCSVParser.m"; sourceTree = "<group>"; };
+		AAA1084F1C33704700201B8D /* games.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = games.csv; path = ../../../Documents/games.csv; sourceTree = "<group>"; };
 		AAC8404A1C28831C0014DD39 /* RLRDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRDataController.h; sourceTree = "<group>"; };
 		AAC8404B1C28831D0014DD39 /* RLRDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRDataController.m; sourceTree = "<group>"; };
-		AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		AACBCF521C223F570013B46A /* RLRGamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRGamesTableViewController.h; sourceTree = "<group>"; };
 		AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRGamesTableViewController.m; sourceTree = "<group>"; };
 		AACBCF551C223F6D0013B46A /* RLRHotkeysTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRHotkeysTableViewController.h; sourceTree = "<group>"; };
@@ -97,6 +102,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA799FF91C3312860058F523 /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "3rd Party";
+			sourceTree = "<group>";
+		};
 		AACBCF681C22943B0013B46A /* TableViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +138,9 @@
 		AAEFE8091C2231200001076A = {
 			isa = PBXGroup;
 			children = (
+				AA81B5FA1C339C7300F53E90 /* CHCSVParser.h */,
+				AA81B5FB1C339C7300F53E90 /* CHCSVParser.m */,
 				AA335AE91C2EFD38008BD791 /* Todo */,
-				AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */,
 				AAEFE8141C2231200001076A /* VideoGameHotkeys */,
 				AAEFE82B1C2231200001076A /* VideoGameHotkeysTests */,
 				AAEFE8361C2231210001076A /* VideoGameHotkeysUITests */,
@@ -150,10 +163,12 @@
 			children = (
 				AAEFE8181C2231200001076A /* AppDelegate.h */,
 				AAEFE8191C2231200001076A /* AppDelegate.m */,
+				AACBCF5B1C2268780013B46A /* Model.xcdatamodeld */,
 				AACBCF631C226D670013B46A /* Storyboard.storyboard */,
 				AACBCF681C22943B0013B46A /* TableViewControllers */,
 				AACBCF6F1C22958F0013B46A /* Data */,
 				AAEFE8151C2231200001076A /* Supporting Files */,
+				AA799FF91C3312860058F523 /* 3rd Party */,
 			);
 			path = VideoGameHotkeys;
 			sourceTree = "<group>";
@@ -161,10 +176,11 @@
 		AAEFE8151C2231200001076A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AAEFE8231C2231200001076A /* Info.plist */,
-				AACBCF5B1C2268780013B46A /* Model.xcdatamodeld */,
-				AAEFE8161C2231200001076A /* main.m */,
 				AAEFE81E1C2231200001076A /* Assets.xcassets */,
+				AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */,
+				AAEFE8231C2231200001076A /* Info.plist */,
+				AAA1084F1C33704700201B8D /* games.csv */,
+				AAEFE8161C2231200001076A /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -292,6 +308,7 @@
 			files = (
 				AA335AEA1C2EFD38008BD791 /* Todo in Resources */,
 				AAEFE81F1C2231200001076A /* Assets.xcassets in Resources */,
+				AAA108501C33704700201B8D /* games.csv in Resources */,
 				AACBCF641C226D670013B46A /* Storyboard.storyboard in Resources */,
 				AACBCF4E1C223ADD0013B46A /* Default-568h@2x.png in Resources */,
 			);
@@ -326,6 +343,7 @@
 				AACBCF611C226B500013B46A /* RLRWelcomeTableViewController.m in Sources */,
 				AAC8404C1C28831D0014DD39 /* RLRDataController.m in Sources */,
 				AAEFE81A1C2231200001076A /* AppDelegate.m in Sources */,
+				AA81B5FC1C339C7300F53E90 /* CHCSVParser.m in Sources */,
 				AAEFE8171C2231200001076A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
