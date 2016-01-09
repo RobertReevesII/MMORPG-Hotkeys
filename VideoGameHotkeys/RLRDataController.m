@@ -8,6 +8,7 @@
 
 #import "RLRDataController.h"
 #import "RLRGame.h"
+#import "RLRHotkey.h"
 #import "CHCSVParser.h"
 
 @implementation RLRDataController
@@ -18,14 +19,6 @@
         return nil;
     }
     [self initializeCoreData];
-    
-    // If first time running program, populate Core Data
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if (![defaults valueForKey:@"dataIsPreloaded"]) {
-        NSLog(@"!dataIsPreloaded");
-        [self preloadGames];
-        [defaults setObject:@YES forKey:@"dataIsPreloaded"];
-    }
     return self;
 }
 
@@ -54,68 +47,97 @@
     NSURL *storeURL = [documentsURL URLByAppendingPathComponent:@"DataModel.sqlite"];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
-                     ^(void) {
-                         NSError *error = nil;
-                         NSPersistentStoreCoordinator *psc = [[self managedObjectContext]
-                                                              persistentStoreCoordinator];
-                         NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType
-                                                                      configuration:nil
-                                                                                URL:storeURL
-                                                                            options:nil
-                                                                              error:&error];
-                         NSAssert(store != nil, @"Error initializing PSC: %@/n%@", [error localizedDescription],
-                                  [error userInfo]);
-                     });
+                   ^(void) {
+                       NSError *error = nil;
+                       NSPersistentStoreCoordinator *psc = [[self managedObjectContext]
+                                                            persistentStoreCoordinator];
+                       NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType
+                                                                    configuration:nil
+                                                                              URL:storeURL
+                                                                          options:nil
+                                                                            error:&error];
+                       NSAssert(store != nil, @"Error initializing PSC: %@/n%@", [error localizedDescription],
+                                [error userInfo]);
+                   });
 }
 
-/*
-- (void)initialCoreDataPopulation {
-    // Create initial RLRGame
-    RLRGame *game1 = [NSEntityDescription insertNewObjectForEntityForName:@"Game"
-                                                   inManagedObjectContext:self.managedObjectContext];
-    
-    game1.name = @"League of Legends";
-    
-    // Insert intial RLRGame into Managed Object Contezt
-    
-    
-    // Save objects into store
-    NSError *error = nil;
-    if ([[self managedObjectContext] save:&error] == NO) {
-        NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription],
-                 [error userInfo]);
-    }
-
-}
-*/
- 
 #pragma mark - Preloading Core Data
 
 - (void)preloadGames {
-    // Get the URL for the .csv file
+    // Get data as an array of arrays of strings from games.csv
     NSBundle *applicationBundle = [NSBundle mainBundle];
     NSString *path = [applicationBundle pathForResource:@"games"
                                                  ofType:@"csv"];
     NSURL *csvURL = [NSURL fileURLWithPath:path];
-    //NSLog(@"-preloadGames \n %@", csvURL);
-    
-    // Create an array of arrays of NSStrings from parsed games.csv
     NSArray *parsedArray = [NSArray arrayWithContentsOfCSVURL:csvURL];
-    //NSLog(@"%@", parsedArray);
     
-    // Create managed objects from the array of games
+    // Insert data into Core Data
     for (NSArray *array in parsedArray) {
         RLRGame *managedGame = [NSEntityDescription insertNewObjectForEntityForName:@"Game"
-                                                             inManagedObjectContext:self.managedObjectContext];
-        managedGame.name = [array objectAtIndex:0];
-        NSLog(@"%@", managedGame.name);
-        // Save changes in the Managed Object Context
+                                                             inManagedObjectContext:[self managedObjectContext]];
+        
+        NSMutableSet *mutableHotkeySet = [[NSMutableSet alloc] init];
+        
+        RLRHotkey *managedHotkey = [NSEntityDescription insertNewObjectForEntityForName:@"Hotkey"
+                                                                 inManagedObjectContext:[self managedObjectContext]];
+        managedHotkey.game.name = [array objectAtIndex:0];
+        
+        for (NSString *string in array) {
+            
+            // If index == 0, string is game.name
+            if ([array indexOfObject:string] == 0) {
+                managedGame.name = string;
+                // Save
+                NSError *error = nil;
+                if ([[self managedObjectContext] save:&error] == NO) {
+                    NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+                }
+            }
+            // If index != 0, save string to appropriate hotkey property
+            if ([array indexOfObject:string] != 0) {
+                
+                // If index is odd, string should be inserted into hotkeys as function
+                if (([array indexOfObject:string] % 2) == 1) {
+                    managedHotkey.function = string;
+                    // If both properties of hotkey are set, save it and reset it
+                    if (managedHotkey.function && managedHotkey.keys) {
+                        [mutableHotkeySet addObject:managedHotkey];
+                        NSError *error = nil;
+                        if ([[self managedObjectContext] save:&error] == NO) {
+                            NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+                        }
+                        managedHotkey = [NSEntityDescription insertNewObjectForEntityForName:@"Hotkey"
+                                                                      inManagedObjectContext:[self managedObjectContext]];
+                    }
+                }
+                // If index is even, string should be inserted into hotkeys as keys
+                else if (([array indexOfObject:string] % 2) == 0) {
+                    managedHotkey.keys = string;
+                    if (managedHotkey.keys && managedHotkey.function) {
+                        [mutableHotkeySet addObject:managedHotkey];
+                        NSError *error = nil;
+                        if ([[self managedObjectContext] save:&error] == NO) {
+                            NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+                        }
+                        managedHotkey = [NSEntityDescription insertNewObjectForEntityForName:@"Hotkey"
+                                                                      inManagedObjectContext:[self managedObjectContext]];
+                    }
+                }
+                else {
+                    NSLog(@"-indexexOfobjectsPassingTest: Test Failed for %@", string);
+                }
+                
+            }
+        }
+        // managedGame properties SHOULD be set by here
+        NSSet *hotkeySet = [[NSSet alloc] initWithSet:mutableHotkeySet];
+        managedGame.hotkeys = hotkeySet;
         NSError *error = nil;
         if ([[self managedObjectContext] save:&error] == NO) {
-            NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription],
-                     [error userInfo]);
+            NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
         }
     }
 }
+
 
 @end

@@ -13,5 +13,5 @@
 @interface RLRGame : NSManagedObject
 
 @property (nonatomic) NSString *name;
-
+@property (nonatomic, strong) NSSet *hotkeys;
 @end

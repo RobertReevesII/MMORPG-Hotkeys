@@ -10,7 +10,7 @@
 
 @implementation RLRHotkey
 
-@dynamic function;
 @dynamic keys;
-
+@dynamic function;
+@dynamic game;
 @end

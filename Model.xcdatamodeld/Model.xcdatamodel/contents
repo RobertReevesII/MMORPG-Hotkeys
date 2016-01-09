@@ -2,19 +2,15 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
     <entity name="Game" representedClassName="RLRGame" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="hotkey" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hotkey" inverseName="game" inverseEntity="Hotkey" syncable="YES">
-            <userInfo>
-                <entry key="key" value="value"/>
-            </userInfo>
-        </relationship>
+        <relationship name="hotkeys" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hotkey" inverseName="game" inverseEntity="Hotkey" syncable="YES"/>
     </entity>
-    <entity name="Hotkey" representedClassName="" syncable="YES">
+    <entity name="Hotkey" syncable="YES">
         <attribute name="function" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="keys" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="hotkey" inverseEntity="Game" syncable="YES"/>
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="hotkeys" inverseEntity="Game" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Game" positionX="-9" positionY="63" width="128" height="73"/>
-        <element name="Hotkey" positionX="-335" positionY="27" width="128" height="88"/>
+        <element name="Game" positionX="-9" positionY="63" width="128" height="75"/>
+        <element name="Hotkey" positionX="-9" positionY="72" width="128" height="90"/>
     </elements>
 </model>

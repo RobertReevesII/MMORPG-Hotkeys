@@ -11,15 +11,23 @@
 #import "RLRHotkeysTableViewController.h"
 #import "RLRDataController.h"
 #import "RLRGame.h"
+#import "AppDelegate.h"
 
 
-@interface RLRGamesTableViewController () <NSFetchedResultsControllerDelegate>
+@interface RLRGamesTableViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, strong) NSArray *gamesArray;
+
 @end
 
 
 @implementation RLRGamesTableViewController
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
 
 #pragma mark - Life Cycle
 
@@ -28,14 +36,14 @@
     
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
-    NSLog(@"1");
-    [self initializeFetchedResultsController];
-    NSLog(@"2");
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self initializeFetchedResultsController];
+
+    self.navigationItem.title = @"Games";
+    [self.tableView reloadData];
 }
 
 #pragma mark - NSFetchedResultsController
@@ -44,18 +52,17 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Game"];
     NSSortDescriptor *nameSort = [NSSortDescriptor sortDescriptorWithKey:@"name"
                                                                  ascending:YES];
-    [request setSortDescriptors:@[nameSort]];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:nameSort, nil];
+    [request setSortDescriptors:sortDescriptors];
+    AppDelegate *myAppDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *moc = myAppDelegate.dataController.managedObjectContext;
     
-    RLRDataController *dataController = [[RLRDataController alloc]
-                                         init];
-    
-    NSManagedObjectContext *moc = dataController.managedObjectContext;
-    
-    [self setFetchedResultsController:[[NSFetchedResultsController alloc]
-                                       initWithFetchRequest:request
-                                       managedObjectContext:moc
-                                       sectionNameKeyPath:nil
-                                       cacheName:nil]];
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]
+                                                            initWithFetchRequest:request
+                                                            managedObjectContext:moc
+                                                            sectionNameKeyPath:nil
+                                                            cacheName:@"gamesCache"];
+    self.fetchedResultsController = fetchedResultsController;
     [[self fetchedResultsController] setDelegate:self];
     
     NSError *error = nil;
@@ -64,22 +71,14 @@
               [error userInfo]);
         abort();
     }
-    NSLog(@"%@", self.fetchedResultsController.fetchedObjects);
 }
 
 #pragma mark - Table view data source
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-     NSLog(@"cellforrowcalled");
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-     RLRGame *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
-     
-     NSLog(@"%@", game.name);
-     
-     // Configure the cell...
-     
-     
-     // Should I do this in a custom UITableViewCell?
+     RLRGame *game = self.fetchedResultsController.fetchedObjects[indexPath.row];
+
      cell.textLabel.text = game.name;
      
      return cell;
@@ -93,49 +92,15 @@
     return [_fetchedResultsController.fetchedObjects count];
 }
 
+#pragma mark - Table view delegate
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Present HotkeysTableViewController initiated with game
+    RLRGame *game =[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    RLRHotkeysTableViewController *htvc = [[RLRHotkeysTableViewController alloc] initWithGame:game];
+    [self.navigationController pushViewController:htvc
+                                         animated:YES];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

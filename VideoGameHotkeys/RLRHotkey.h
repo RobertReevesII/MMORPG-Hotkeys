@@ -9,10 +9,11 @@
 @import Foundation;
 @import UIKit;
 @import CoreData;
+#import "RLRGame.h"
 
 @interface RLRHotkey : NSManagedObject
 
 @property (nonatomic) NSString *keys;
 @property (nonatomic) NSString *function;
-
+@property (nonatomic, strong) RLRGame *game;
 @end

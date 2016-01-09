@@ -7,86 +7,89 @@
 //
 
 #import "RLRHotkeysTableViewController.h"
+#import "RLRGame.h"
+#import "RLRHotkey.h"
+#import "RLRDataController.h"
+#import "AppDelegate.h"
 
-@interface RLRHotkeysTableViewController ()
+@interface RLRHotkeysTableViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, UINavigationControllerDelegate>
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
 @implementation RLRHotkeysTableViewController
 
+- (instancetype)initWithGame:(RLRGame *)game {
+    self = [super init];
+    if (self) {
+        _game = game;
+    }
+    return self;
+}
+
+#pragma mark - Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:@"UITableViewCell"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self initializeFetchedResultsController];
+    
+    self.navigationItem.title = _game.name;
+    [self.tableView reloadData];
+}
+
+#pragma mark - NSFetchedResultsController
+
+- (void)initializeFetchedResultsController {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Hotkey"];
+    NSSortDescriptor *functionSort = [NSSortDescriptor sortDescriptorWithKey:@"function"
+                                                                   ascending:YES];
+    [request setSortDescriptors:@[functionSort]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"game.name == %@", self.game.name];
+    request.predicate = predicate;
+    AppDelegate *myAppDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *moc = myAppDelegate.dataController.managedObjectContext;
+    
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]
+                                                            initWithFetchRequest:request
+                                                            managedObjectContext:moc
+                                                            sectionNameKeyPath:nil
+                                                            cacheName:self.game.name];
+    self.fetchedResultsController = fetchedResultsController;
+    [[self fetchedResultsController] setDelegate:self];
+    
+    NSError *error = nil;
+        if (![[self fetchedResultsController] performFetch:&error]) {
+            NSLog(@"Failed to initialize FetchedResultsController %@\n%@", [error localizedDescription],
+                  [error userInfo]);
+            abort();
+        }
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [[self.fetchedResultsController fetchedObjects] count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+                                                   reuseIdentifier:@"UITableViewCell"];
+    RLRHotkey *hotkey = self.fetchedResultsController.fetchedObjects[indexPath.row];
+
+    cell.textLabel.text = hotkey.function;
+    cell.detailTextLabel.text = hotkey.keys;
     
     return cell;
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

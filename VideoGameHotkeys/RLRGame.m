@@ -11,5 +11,6 @@
 @implementation RLRGame
 
 @dynamic name;
+@dynamic hotkeys;
 
 @end
