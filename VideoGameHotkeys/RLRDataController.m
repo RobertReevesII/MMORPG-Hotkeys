@@ -71,6 +71,8 @@
     NSURL *csvURL = [NSURL fileURLWithPath:path];
     NSArray *parsedArray = [NSArray arrayWithContentsOfCSVURL:csvURL];
     
+    
+    
     // Insert data into Core Data
     for (NSArray *array in parsedArray) {
         RLRGame *managedGame = [NSEntityDescription insertNewObjectForEntityForName:@"Game"

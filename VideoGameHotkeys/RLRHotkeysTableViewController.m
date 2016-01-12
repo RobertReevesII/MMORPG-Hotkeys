@@ -11,6 +11,7 @@
 #import "RLRHotkey.h"
 #import "RLRDataController.h"
 #import "AppDelegate.h"
+#import "RLRHotkeyDetailViewController.h"
 
 @interface RLRHotkeysTableViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -92,4 +93,15 @@
     
     return cell;
 }
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    RLRHotkeyDetailViewController *hdvc = [[RLRHotkeyDetailViewController alloc] init];
+    RLRHotkey *hotkey = self.fetchedResultsController.fetchedObjects[indexPath.row];
+    hdvc.hotkey = hotkey;
+    [self.navigationController pushViewController:hdvc
+                                         animated:YES];
+}
+
 @end

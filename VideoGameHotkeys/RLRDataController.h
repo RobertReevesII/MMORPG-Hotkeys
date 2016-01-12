@@ -8,8 +8,9 @@
 
 @import CoreData;
 @import Foundation;
+#import "CHCSVParser.h"
 
-@interface RLRDataController : NSObject
+@interface RLRDataController : NSObject <CHCSVParserDelegate>
 
 @property (strong) NSManagedObjectContext *managedObjectContext;
 
