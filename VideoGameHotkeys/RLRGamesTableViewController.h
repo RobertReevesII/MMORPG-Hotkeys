@@ -10,4 +10,6 @@
 
 @interface RLRGamesTableViewController : UITableViewController
 
+- (instancetype)initWithFavorite;
+
 @end

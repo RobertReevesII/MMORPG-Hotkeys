@@ -10,6 +10,6 @@
 #import "RLRGame.h"
 
 @interface RLRHotkeysTableViewController : UITableViewController
-@property (nonatomic, strong) RLRGame *game;
+
 - (instancetype)initWithGame:(RLRGame *)game;
 @end

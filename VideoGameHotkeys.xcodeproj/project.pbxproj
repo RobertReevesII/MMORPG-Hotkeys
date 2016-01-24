@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA335AEA1C2EFD38008BD791 /* Todo in Resources */ = {isa = PBXBuildFile; fileRef = AA335AE91C2EFD38008BD791 /* Todo */; };
+		AA01769A1C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0176981C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.m */; };
+		AA01769B1C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA0176991C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.xib */; };
+		AA01769E1C4C793E0007B44D /* RLRKeysLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA01769D1C4C793E0007B44D /* RLRKeysLabel.m */; };
+		AA0A87251C52ED320003035E /* RLRFavoriteController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0A87241C52ED320003035E /* RLRFavoriteController.m */; };
+		AA3136181C4AFDE1001A0A13 /* RLRFunctionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3136171C4AFDE1001A0A13 /* RLRFunctionLabel.m */; };
+		AA5B269A1C4EB03900636D6A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5B26981C4EB03900636D6A /* HomeViewController.m */; };
+		AA5B269B1C4EB03900636D6A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA5B26991C4EB03900636D6A /* HomeViewController.xib */; };
 		AA81B5FC1C339C7300F53E90 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA81B5FB1C339C7300F53E90 /* CHCSVParser.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		AAA108501C33704700201B8D /* games.csv in Resources */ = {isa = PBXBuildFile; fileRef = AAA1084F1C33704700201B8D /* games.csv */; };
-		AAAE93B81C40DFD60026C247 /* RLRHotkeyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAE93B61C40DFD60026C247 /* RLRHotkeyDetailViewController.m */; };
-		AAAE93B91C40DFD60026C247 /* RLRHotkeyDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAAE93B71C40DFD60026C247 /* RLRHotkeyDetailViewController.xib */; };
 		AAC8404C1C28831D0014DD39 /* RLRDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC8404B1C28831D0014DD39 /* RLRDataController.m */; };
 		AACBCF4E1C223ADD0013B46A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */; };
 		AACBCF541C223F570013B46A /* RLRGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */; };
@@ -24,6 +28,8 @@
 		AAEFE81F1C2231200001076A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAEFE81E1C2231200001076A /* Assets.xcassets */; };
 		AAEFE82D1C2231200001076A /* VideoGameHotkeysTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEFE82C1C2231200001076A /* VideoGameHotkeysTests.m */; };
 		AAEFE8381C2231210001076A /* VideoGameHotkeysUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEFE8371C2231210001076A /* VideoGameHotkeysUITests.m */; };
+		AAFFC29E1C4F0F6F0090CF1A /* HotkeysInside.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFFC29D1C4F0F6F0090CF1A /* HotkeysInside.png */; };
+		AAFFC2A01C4F10490090CF1A /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFFC29F1C4F10490090CF1A /* iTunesArtwork.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,13 +50,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AA335AE91C2EFD38008BD791 /* Todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Todo; path = VideoGameHotkeys/Todo; sourceTree = "<group>"; };
+		AA0176971C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRHotkeyDetailTableViewCell.h; sourceTree = "<group>"; };
+		AA0176981C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRHotkeyDetailTableViewCell.m; sourceTree = "<group>"; };
+		AA0176991C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLRHotkeyDetailTableViewCell.xib; sourceTree = "<group>"; };
+		AA01769C1C4C793E0007B44D /* RLRKeysLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRKeysLabel.h; sourceTree = "<group>"; };
+		AA01769D1C4C793E0007B44D /* RLRKeysLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRKeysLabel.m; sourceTree = "<group>"; };
+		AA0A87231C52ED320003035E /* RLRFavoriteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRFavoriteController.h; sourceTree = "<group>"; };
+		AA0A87241C52ED320003035E /* RLRFavoriteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRFavoriteController.m; sourceTree = "<group>"; };
+		AA3136161C4AFDE1001A0A13 /* RLRFunctionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRFunctionLabel.h; sourceTree = "<group>"; };
+		AA3136171C4AFDE1001A0A13 /* RLRFunctionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRFunctionLabel.m; sourceTree = "<group>"; };
+		AA5B26971C4EB03900636D6A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		AA5B26981C4EB03900636D6A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		AA5B26991C4EB03900636D6A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		AA81B5FA1C339C7300F53E90 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHCSVParser.h; path = "../../CHCSVParser-master-2/CHCSVParser/CHCSVParser/CHCSVParser.h"; sourceTree = "<group>"; };
 		AA81B5FB1C339C7300F53E90 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHCSVParser.m; path = "../../CHCSVParser-master-2/CHCSVParser/CHCSVParser/CHCSVParser.m"; sourceTree = "<group>"; };
 		AAA1084F1C33704700201B8D /* games.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = games.csv; path = ../../../Documents/games.csv; sourceTree = "<group>"; };
-		AAAE93B51C40DFD60026C247 /* RLRHotkeyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRHotkeyDetailViewController.h; sourceTree = "<group>"; };
-		AAAE93B61C40DFD60026C247 /* RLRHotkeyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRHotkeyDetailViewController.m; sourceTree = "<group>"; };
-		AAAE93B71C40DFD60026C247 /* RLRHotkeyDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLRHotkeyDetailViewController.xib; sourceTree = "<group>"; };
 		AAC8404A1C28831C0014DD39 /* RLRDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRDataController.h; sourceTree = "<group>"; };
 		AAC8404B1C28831D0014DD39 /* RLRDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRDataController.m; sourceTree = "<group>"; };
 		AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -75,6 +89,8 @@
 		AAEFE8331C2231200001076A /* VideoGameHotkeysUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoGameHotkeysUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAEFE8371C2231210001076A /* VideoGameHotkeysUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoGameHotkeysUITests.m; sourceTree = "<group>"; };
 		AAEFE8391C2231210001076A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAFFC29D1C4F0F6F0090CF1A /* HotkeysInside.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HotkeysInside.png; path = ../../../Pictures/HotkeyAppIcons/HotkeysInside.png; sourceTree = "<group>"; };
+		AAFFC29F1C4F10490090CF1A /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = ../../../Downloads/HotkeysInside/ios/iTunesArtwork.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +118,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA01769F1C4C81660007B44D /* Hotkey Detail Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AA0176971C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.h */,
+				AA0176981C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.m */,
+				AA0176991C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.xib */,
+				AA3136161C4AFDE1001A0A13 /* RLRFunctionLabel.h */,
+				AA3136171C4AFDE1001A0A13 /* RLRFunctionLabel.m */,
+				AA01769C1C4C793E0007B44D /* RLRKeysLabel.h */,
+				AA01769D1C4C793E0007B44D /* RLRKeysLabel.m */,
+			);
+			name = "Hotkey Detail Cell";
+			sourceTree = "<group>";
+		};
+		AA637B161C52C7B10009A6C0 /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				AA5B26971C4EB03900636D6A /* HomeViewController.h */,
+				AA5B26981C4EB03900636D6A /* HomeViewController.m */,
+				AA5B26991C4EB03900636D6A /* HomeViewController.xib */,
+				AA0A87231C52ED320003035E /* RLRFavoriteController.h */,
+				AA0A87241C52ED320003035E /* RLRFavoriteController.m */,
+			);
+			name = "Home View";
+			sourceTree = "<group>";
+		};
 		AA799FF91C3312860058F523 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,18 +153,15 @@
 			name = "3rd Party";
 			sourceTree = "<group>";
 		};
-		AACBCF681C22943B0013B46A /* TViewControllers */ = {
+		AACBCF681C22943B0013B46A /* Table View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				AACBCF521C223F570013B46A /* RLRGamesTableViewController.h */,
 				AACBCF531C223F570013B46A /* RLRGamesTableViewController.m */,
 				AACBCF551C223F6D0013B46A /* RLRHotkeysTableViewController.h */,
 				AACBCF561C223F6D0013B46A /* RLRHotkeysTableViewController.m */,
-				AAAE93B51C40DFD60026C247 /* RLRHotkeyDetailViewController.h */,
-				AAAE93B61C40DFD60026C247 /* RLRHotkeyDetailViewController.m */,
-				AAAE93B71C40DFD60026C247 /* RLRHotkeyDetailViewController.xib */,
 			);
-			name = TViewControllers;
+			name = "Table View Controllers";
 			sourceTree = "<group>";
 		};
 		AACBCF6F1C22958F0013B46A /* Data */ = {
@@ -141,7 +180,6 @@
 		AAEFE8091C2231200001076A = {
 			isa = PBXGroup;
 			children = (
-				AA335AE91C2EFD38008BD791 /* Todo */,
 				AAEFE8141C2231200001076A /* VideoGameHotkeys */,
 				AAEFE82B1C2231200001076A /* VideoGameHotkeysTests */,
 				AAEFE8361C2231210001076A /* VideoGameHotkeysUITests */,
@@ -166,7 +204,9 @@
 				AAEFE8181C2231200001076A /* AppDelegate.h */,
 				AAEFE8191C2231200001076A /* AppDelegate.m */,
 				AACBCF5B1C2268780013B46A /* Model.xcdatamodeld */,
-				AACBCF681C22943B0013B46A /* TViewControllers */,
+				AA637B161C52C7B10009A6C0 /* Home View */,
+				AACBCF681C22943B0013B46A /* Table View Controllers */,
+				AA01769F1C4C81660007B44D /* Hotkey Detail Cell */,
 				AACBCF6F1C22958F0013B46A /* Data */,
 				AAEFE8151C2231200001076A /* Supporting Files */,
 				AA799FF91C3312860058F523 /* 3rd Party */,
@@ -181,6 +221,8 @@
 				AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */,
 				AAEFE8231C2231200001076A /* Info.plist */,
 				AAA1084F1C33704700201B8D /* games.csv */,
+				AAFFC29D1C4F0F6F0090CF1A /* HotkeysInside.png */,
+				AAFFC29F1C4F10490090CF1A /* iTunesArtwork.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -306,9 +348,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAAE93B91C40DFD60026C247 /* RLRHotkeyDetailViewController.xib in Resources */,
-				AA335AEA1C2EFD38008BD791 /* Todo in Resources */,
+				AA01769B1C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.xib in Resources */,
 				AAEFE81F1C2231200001076A /* Assets.xcassets in Resources */,
+				AA5B269B1C4EB03900636D6A /* HomeViewController.xib in Resources */,
+				AAFFC2A01C4F10490090CF1A /* iTunesArtwork.png in Resources */,
+				AAFFC29E1C4F0F6F0090CF1A /* HotkeysInside.png in Resources */,
 				AAA108501C33704700201B8D /* games.csv in Resources */,
 				AACBCF4E1C223ADD0013B46A /* Default-568h@2x.png in Resources */,
 			);
@@ -337,14 +381,18 @@
 			files = (
 				AACBCF6E1C2295560013B46A /* RLRHotkey.m in Sources */,
 				AACBCF541C223F570013B46A /* RLRGamesTableViewController.m in Sources */,
+				AA0A87251C52ED320003035E /* RLRFavoriteController.m in Sources */,
+				AA3136181C4AFDE1001A0A13 /* RLRFunctionLabel.m in Sources */,
 				AACBCF5D1C2268780013B46A /* Model.xcdatamodeld in Sources */,
 				AACBCF571C223F6D0013B46A /* RLRHotkeysTableViewController.m in Sources */,
-				AAAE93B81C40DFD60026C247 /* RLRHotkeyDetailViewController.m in Sources */,
 				AACBCF6B1C2294780013B46A /* RLRGame.m in Sources */,
 				AAC8404C1C28831D0014DD39 /* RLRDataController.m in Sources */,
 				AAEFE81A1C2231200001076A /* AppDelegate.m in Sources */,
 				AA81B5FC1C339C7300F53E90 /* CHCSVParser.m in Sources */,
+				AA01769E1C4C793E0007B44D /* RLRKeysLabel.m in Sources */,
 				AAEFE8171C2231200001076A /* main.m in Sources */,
+				AA01769A1C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.m in Sources */,
+				AA5B269A1C4EB03900636D6A /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

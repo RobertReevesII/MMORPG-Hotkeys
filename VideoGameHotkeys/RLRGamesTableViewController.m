@@ -12,19 +12,30 @@
 #import "RLRDataController.h"
 #import "RLRGame.h"
 #import "AppDelegate.h"
-
+#import "HomeViewController.h"
 
 @interface RLRGamesTableViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-
+- (void)viewWillAppear:(BOOL)animated;
+- (void)initializeFetchedResultsController;
+@property (nonatomic) BOOL isSettingFavorite;
 @end
 
 
 @implementation RLRGamesTableViewController
 
-- (instancetype)init {
+- (instancetype)init{
     self = [super init];
     if (self) {
+        
+    }
+    return self;
+}
+
+- (instancetype)initWithFavorite{
+    self = [super init];
+    if (self) {
+        _isSettingFavorite = YES;
     }
     return self;
 }
@@ -42,9 +53,11 @@
     [super viewWillAppear:animated];
     [self initializeFetchedResultsController];
 
-    self.navigationItem.title = @"Games";
+    self.navigationController.navigationBarHidden = NO;
+
     [self.tableView reloadData];
 }
+
 
 #pragma mark - NSFetchedResultsController
 
@@ -78,7 +91,7 @@
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
      RLRGame *game = self.fetchedResultsController.fetchedObjects[indexPath.row];
-
+     
      cell.textLabel.text = game.name;
      
      return cell;
@@ -92,15 +105,18 @@
     return [_fetchedResultsController.fetchedObjects count];
 }
 
-#pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Present HotkeysTableViewController initiated with game
-    RLRGame *game =[[self fetchedResultsController] objectAtIndexPath:indexPath];
-    RLRHotkeysTableViewController *htvc = [[RLRHotkeysTableViewController alloc] initWithGame:game];
-    [self.navigationController pushViewController:htvc
-                                         animated:YES];
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RLRGame *game = self.fetchedResultsController.fetchedObjects[indexPath.row];
+    
+    if (_isSettingFavorite) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:game.name
+                     forKey:@"favoriteTitle"];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    else {
+        RLRHotkeysTableViewController *htvc = [[RLRHotkeysTableViewController alloc] initWithGame:game];
+        [self.navigationController pushViewController:htvc animated:YES];
+    }
 }
-
 @end

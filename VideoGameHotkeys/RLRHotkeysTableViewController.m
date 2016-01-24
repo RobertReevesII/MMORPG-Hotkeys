@@ -11,10 +11,13 @@
 #import "RLRHotkey.h"
 #import "RLRDataController.h"
 #import "AppDelegate.h"
-#import "RLRHotkeyDetailViewController.h"
+#import "RLRHotkeyDetailTableViewCell.h"
 
-@interface RLRHotkeysTableViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, UINavigationControllerDelegate>
+@interface RLRHotkeysTableViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate,
+                                                UINavigationControllerDelegate>
+
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) RLRGame *game;
 
 @end
 
@@ -24,6 +27,8 @@
     self = [super init];
     if (self) {
         _game = game;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 44;
     }
     return self;
 }
@@ -32,18 +37,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.tableView registerClass:[UITableViewCell class]
-           forCellReuseIdentifier:@"UITableViewCell"];
+
+    [self.tableView registerNib:[UINib nibWithNibName:@"RLRHotkeyDetailTableViewCell" bundle:nil]
+         forCellReuseIdentifier:@"HotkeyCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self initializeFetchedResultsController];
-    
+
+    self.navigationController.navigationBarHidden = NO;
     self.navigationItem.title = _game.name;
     [self.tableView reloadData];
 }
+
 
 #pragma mark - NSFetchedResultsController
 
@@ -84,24 +91,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
-                                                   reuseIdentifier:@"UITableViewCell"];
     RLRHotkey *hotkey = self.fetchedResultsController.fetchedObjects[indexPath.row];
 
-    cell.textLabel.text = hotkey.function;
-    cell.detailTextLabel.text = hotkey.keys;
+    RLRHotkeyDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HotkeyCell"];
+
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.functionLabel.numberOfLines = 0;
+    cell.functionLabel.text = [hotkey.function stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    cell.keysLabel.numberOfLines = 0;
+    cell.keysLabel.text = [hotkey.keys stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     return cell;
 }
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    RLRHotkeyDetailViewController *hdvc = [[RLRHotkeyDetailViewController alloc] init];
-    RLRHotkey *hotkey = self.fetchedResultsController.fetchedObjects[indexPath.row];
-    hdvc.hotkey = hotkey;
-    [self.navigationController pushViewController:hdvc
-                                         animated:YES];
-}
-
 @end

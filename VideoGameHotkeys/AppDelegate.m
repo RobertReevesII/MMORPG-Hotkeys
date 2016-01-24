@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "RLRGamesTableViewController.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,22 +20,21 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     [self setDataController:[[RLRDataController alloc] init]];
-    
-    RLRGamesTableViewController *gtvc = [[RLRGamesTableViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:gtvc];
-    navController.title = @"Games";
-    self.window.rootViewController = navController;
-    
-    // If first time running program, populate Core Data
+
+    // If first time running the program then populate Core Data
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![defaults valueForKey:@"dataIsPreloaded"]) {
-        NSLog(@"!dataIsPreloaded");
         [[self dataController] preloadGames];
         [defaults setObject:@YES forKey:@"dataIsPreloaded"];}
 
+    HomeViewController *hvc = [[HomeViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:hvc];
+
+    self.window.rootViewController = navController;
     
     [self.window makeKeyAndVisible];
     return YES;
 }
+
 
 @end
