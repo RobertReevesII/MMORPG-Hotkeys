@@ -42,20 +42,23 @@
     NSString *favoriteName = [defaults valueForKey:@"favoriteTitle"];
     
     
-    
     if (favoriteName) {
         
+        if ([favoriteName isEqualToString:@"Final Fantasy XIV: A Realm Reborn"]) {
+            favoriteName = @"Final Fantasy XIV";
+        }
+        if ([favoriteName isEqualToString:@"Lord of the Rings Online"]) {
+            favoriteName = @"LOTR Online";
+        }
+        if ([favoriteName isEqualToString:@"Star Wars: The Old Republic"]) {
+            favoriteName = @"Star Wars: TOR";
+        }
         
-        
-        
-        
-        
-        
-        //[favButton setTitle:favoriteName
-          //       forState:UIControlStateNormal];
+        [favButton setTitle:favoriteName
+                 forState:UIControlStateNormal];
         
     }
-    else {[favButton setTitle:@""
+    else {[favButton setTitle:@"Favorite"
                    forState:UIControlStateNormal];
     }
 }
