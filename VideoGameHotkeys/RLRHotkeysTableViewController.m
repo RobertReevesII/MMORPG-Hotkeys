@@ -47,7 +47,10 @@
     [self initializeFetchedResultsController];
 
     self.navigationController.navigationBarHidden = NO;
-    self.navigationItem.title = _game.name;
+    self.navigationItem.title = self.game.name;
+    if ([self.game.name isEqualToString:@"Final Fantasy XIV: A Realm Reborn"]) {
+        self.navigationItem.title = @"Final Fantasy XIV";
+    }
     [self.tableView reloadData];
 }
 

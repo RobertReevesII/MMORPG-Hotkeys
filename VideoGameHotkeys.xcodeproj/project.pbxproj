@@ -12,6 +12,7 @@
 		AA01769E1C4C793E0007B44D /* RLRKeysLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA01769D1C4C793E0007B44D /* RLRKeysLabel.m */; };
 		AA0A87251C52ED320003035E /* RLRFavoriteController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0A87241C52ED320003035E /* RLRFavoriteController.m */; };
 		AA3136181C4AFDE1001A0A13 /* RLRFunctionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3136171C4AFDE1001A0A13 /* RLRFunctionLabel.m */; };
+		AA4F66F21C5D96CE00C92113 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA4F66F11C5D96CE00C92113 /* Launch Screen.storyboard */; };
 		AA5B269A1C4EB03900636D6A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5B26981C4EB03900636D6A /* HomeViewController.m */; };
 		AA5B269B1C4EB03900636D6A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA5B26991C4EB03900636D6A /* HomeViewController.xib */; };
 		AA81B5FC1C339C7300F53E90 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA81B5FB1C339C7300F53E90 /* CHCSVParser.m */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -59,6 +60,7 @@
 		AA0A87241C52ED320003035E /* RLRFavoriteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRFavoriteController.m; sourceTree = "<group>"; };
 		AA3136161C4AFDE1001A0A13 /* RLRFunctionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLRFunctionLabel.h; sourceTree = "<group>"; };
 		AA3136171C4AFDE1001A0A13 /* RLRFunctionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLRFunctionLabel.m; sourceTree = "<group>"; };
+		AA4F66F11C5D96CE00C92113 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AA5B26971C4EB03900636D6A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		AA5B26981C4EB03900636D6A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		AA5B26991C4EB03900636D6A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				AAEFE81E1C2231200001076A /* Assets.xcassets */,
+				AA4F66F11C5D96CE00C92113 /* Launch Screen.storyboard */,
 				AACBCF4D1C223ADD0013B46A /* Default-568h@2x.png */,
 				AAEFE8231C2231200001076A /* Info.plist */,
 				AAA1084F1C33704700201B8D /* games.csv */,
@@ -350,6 +353,7 @@
 			files = (
 				AA01769B1C4C69A70007B44D /* RLRHotkeyDetailTableViewCell.xib in Resources */,
 				AAEFE81F1C2231200001076A /* Assets.xcassets in Resources */,
+				AA4F66F21C5D96CE00C92113 /* Launch Screen.storyboard in Resources */,
 				AA5B269B1C4EB03900636D6A /* HomeViewController.xib in Resources */,
 				AAFFC2A01C4F10490090CF1A /* iTunesArtwork.png in Resources */,
 				AAFFC29E1C4F0F6F0090CF1A /* HotkeysInside.png in Resources */,
@@ -516,6 +520,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = reeves.VideoGameHotkeys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -527,6 +532,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = reeves.VideoGameHotkeys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

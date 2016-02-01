@@ -63,9 +63,10 @@
 
 - (void)initializeFetchedResultsController {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Game"];
-    NSSortDescriptor *nameSort = [NSSortDescriptor sortDescriptorWithKey:@"name"
-                                                                 ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:nameSort, nil];
+    NSSortDescriptor *nameSortCaseInsensitive = [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                                              ascending:YES
+                                                                               selector:@selector(caseInsensitiveCompare:)];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:nameSortCaseInsensitive, nil];
     [request setSortDescriptors:sortDescriptors];
     AppDelegate *myAppDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *moc = myAppDelegate.dataController.managedObjectContext;
